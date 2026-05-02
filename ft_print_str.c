@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptran <ptran@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 12:25:43 by ptran             #+#    #+#             */
-/*   Updated: 2026/05/02 16:07:53 by ptran            ###   ########.fr       */
+/*   Created: 2026/05/02 16:31:21 by ptran             #+#    #+#             */
+/*   Updated: 2026/05/02 16:31:30 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main(void)
+int	print_string(va_list args)
 {
-	unsigned int hex = 4294967295;
-	// printf("%d", ptr);
-	// TODO sans argument mais avec %d
-	// hex negatif
-	// int res;
-	// res = ft_printf("printf %p\n",&hex);
-	// printf("%d\n",res);
-	// res = printf("printf %p\n",&hex);
-	// printf("%d\n",res);
-	// res = ft_printf("printf %x\n",hex);
-	// printf("%d\n",res);
-	// res = printf("printf %x\n",hex);
-	// printf("%d\n",res);
-	
+	char	*str;
+	size_t	len;
 
-	return (0);
+	str = va_arg(args, char *);
+	len = ft_strlen(str);
+	write(1, str, len);
+	return (len);
 }

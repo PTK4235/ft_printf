@@ -2,7 +2,7 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = dict.c \
+SRC = ft_converter.c \
 	ft_printf.c
 
 DIR_LIBFT = libft/libft_extend
@@ -26,6 +26,7 @@ SRC_LIBFT_FILE = ft_isalpha.c \
 	ft_memchr.c \
 	ft_memcmp.c \
 	ft_strnstr.c \
+	ft_strpbrk.c \
 	ft_atoi.c \
 	ft_calloc.c \
 	ft_strdup.c	\
@@ -57,9 +58,6 @@ SRC_LIBFT_FILE = ft_isalpha.c \
 	ft_is_prime.c \
 	ft_power.c \
 	ft_put_nbr_base.c \
-	ft_rev_int_tab.c \
-	ft_rev_params.c \
-	ft_sort_params.c \
 	ft_sqrt.c \
 	ft_str_is_alpha.c \
 	ft_str_is_lowercase.c \
@@ -75,7 +73,8 @@ SRC_LIBFT_FILE = ft_isalpha.c \
 	ft_strncpy.c \
 	ft_strstr.c \
 	ft_strupcase.c \
-	ft_swap.c
+	ft_swap.c \
+	ft_putnbr_fd_size.c
 
 SRC_LIBFT = $(addprefix $(DIR_LIBFT)/, $(SRC_LIBFT_FILE))
 
@@ -87,7 +86,7 @@ $(NAME): $(OBJ)
 	ar -rcs $@ $^
 
 %.o:%.c
-	$(CC) -c $< -o $@ #$(CFLAGS)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)

@@ -6,7 +6,7 @@
 /*   By: ptran <ptran@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/12 16:00:57 by ptran             #+#    #+#             */
-/*   Updated: 2026/04/23 11:39:05 by ptran            ###   ########.fr       */
+/*   Updated: 2026/05/02 15:28:32 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
-	char	*before;
 	char	*cur;
 	size_t	count;
 
 	count = 0;
 	va_start(args, format);
-	before = (char *)format;
-	cur = (char *)format;
-	while (cur != NULL)
+	while (format != NULL)
 	{
-		cur = ft_strpbrk(cur, "cspdiuxX%");
-		if (cur)
+		cur = ft_strchr(format,'%');
+		if (cur && cur[1])
 		{
-			count += cur - before - 2;
-			write(1, before, cur - before - 2);
-			get_value(cur[0], args);
-			before = cur;
+			write(1, format, cur - format);
+			count += cur - format + get_value(cur[1], args);
+			format = cur + 2;
+		}
+		else
+		{
+			write(1, format, ft_strlen(format));
+			count += ft_strlen(format);
+			format = NULL;
 		}
 	}
 	va_end(args);
-	return (1); // a refaire return value
+	return (count);
 }

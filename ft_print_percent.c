@@ -1,34 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   ft_print_percent.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptran <ptran@student.42belgium.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 12:25:43 by ptran             #+#    #+#             */
-/*   Updated: 2026/05/02 16:07:53 by ptran            ###   ########.fr       */
+/*   Created: 2026/05/02 16:35:59 by ptran             #+#    #+#             */
+/*   Updated: 2026/05/02 16:36:10 by ptran            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-int	main(void)
+int	print_percent(va_list args)
 {
-	unsigned int hex = 4294967295;
-	// printf("%d", ptr);
-	// TODO sans argument mais avec %d
-	// hex negatif
-	// int res;
-	// res = ft_printf("printf %p\n",&hex);
-	// printf("%d\n",res);
-	// res = printf("printf %p\n",&hex);
-	// printf("%d\n",res);
-	// res = ft_printf("printf %x\n",hex);
-	// printf("%d\n",res);
-	// res = printf("printf %x\n",hex);
-	// printf("%d\n",res);
-	
-
-	return (0);
+	(void) args;
+	write(1,"%%",2);
+	return (2);
 }
